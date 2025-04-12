@@ -1,12 +1,7 @@
-package main
-
 import (
-    "fmt"
     "os"
+    "html/template"
+    "net/http"
+    "os/exec"
+    "regexp"
 )
-
-func main() {
-    // استخدام مكتبة os لقراءة متغير بيئة
-    user := os.Getenv("USER")
-    fmt.Println("User:", user)
-}
